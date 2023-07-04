@@ -1,13 +1,5 @@
 FROM openjdk:17-jdk-alpine
-
 WORKDIR /app
-
-COPY . .
-
-RUN apk add --no-cache maven
-
-RUN mvn clean install
-
+COPY target/Deploying-our-Web-Application-as-a.jar-on-our-web-server-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-CMD ["java", "-jar", "target/linuxapi.jar"]
+CMD ["java", "-jar", "app.jar"]
